@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhruv Ladla Ji – Bhakti Singer | Vrindavan</title>
+<meta name="description" content="Dhruv Ladla Ji – Renowned Bhakti Singer & Bhajan Sandhya Performer from Shri Vrindavan Dham. Book for Kirtan, Bhajan Sandhya, and spiritual programs.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C96A;
+  --gold-dark: #8B6914;
+  --saffron: #FF6B00;
+  --saffron-light: #FFB347;
+  --white: #FFFFFF;
+  --cream: #FFF9F0;
+  --lotus: #F4A0A0;
+  --deep: #1A0A00;
+  --mid: #3D1C02;
+  --text: #2C1A00;
+  --muted: #7A6040;
+}
+ 
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+ 
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--white);
+  color: var(--text);
+  overflow-x: hidden;
+}
+ 
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+ 
+/* ========== LOADING SCREEN ========== */
+#loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--deep);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 16px; transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+#loader.hide { opacity: 0; visibility: hidden; }
+.loader-om {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: clamp(4rem, 12vw, 8rem);
+  color: var(--gold);
+  animation: omPulse 1.5s ease-in-out infinite;
+  text-shadow: 0 0 40px rgba(201,168,76,0.8);
+}
+.loader-text {
+  font-family: 'Cinzel', serif;
+  color: var(--gold-light);
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  letter-spacing: 0.3em;
+  animation: fadeInUp 1s ease 0.5s both;
+}
+.loader-bar {
+  width: 200px; height: 2px;
+  background: rgba(201,168,76,0.2);
+  border-radius: 1px; overflow: hidden;
+  margin-top: 8px;
+}
+.loader-progress {
+  height: 100%; background: var(--gold);
+  animation: loadBar 2s ease forwards;
+  box-shadow: 0 0 8px var(--gold);
+}
+@keyframes loadBar { from { width: 0 } to { width: 100% } }
+@keyframes omPulse {
+  0%, 100% { transform: scale(1); text-shadow: 0 0 40px rgba(201,168,76,0.8); }
+  50% { transform: scale(1.08); text-shadow: 0 0 80px rgba(201,168,76,1); }
+}
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+ 
+/* ========== FLOATING PETALS ========== */
+.petals-container {
+  position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden;
+}
+.petal {
+  position: absolute; top: -20px;
+  font-size: clamp(10px, 2vw, 18px);
+  animation: petalFall linear infinite;
+  opacity: 0;
+}
+@keyframes petalFall {
+  0% { opacity: 0; transform: translateY(-20px) rotate(0deg); }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.5; }
+  100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+}
+ 
+/* ========== NAVBAR ========== */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 clamp(16px, 4vw, 48px);
+  transition: all 0.4s ease;
+  background: transparent;
+}
+#navbar.scrolled {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 30px rgba(201,168,76,0.15);
+  padding-top: 0;
+}
+.nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav-logo-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--gold), var(--saffron));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 1.3rem; color: white;
+  box-shadow: 0 4px 15px rgba(201,168,76,0.4);
+  flex-shrink: 0;
+}
+.nav-logo-text {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+  color: var(--gold-dark);
+  line-height: 1.2;
+}
+#navbar.scrolled .nav-logo-text { color: var(--gold-dark); }
+#navbar:not(.scrolled) .nav-logo-text { color: var(--white); }
+.nav-links {
+  display: flex; gap: clamp(16px, 3vw, 32px);
+  list-style: none;
+}
+.nav-links a {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom: -3px; left: 0; right: 0;
+  height: 1px; background: var(--gold);
+  transform: scaleX(0); transition: transform 0.3s;
+}
+.nav-links a:hover::after { transform: scaleX(1); }
+#navbar:not(.scrolled) .nav-links a { color: rgba(255,255,255,0.9); }
+#navbar.scrolled .nav-links a { color: var(--text); }
+#navbar:not(.scrolled) .nav-links a:hover { color: var(--gold-light); }
+#navbar.scrolled .nav-links a:hover { color: var(--gold); }
+ 
+.nav-book-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 22px;
+  border: 1.5px solid var(--gold);
+  color: var(--gold);
+  border-radius: 2px;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+#navbar:not(.scrolled) .nav-book-btn { border-color: rgba(255,255,255,0.7); color: white; }
+.nav-book-btn:hover { background: var(--gold); color: white !important; border-color: var(--gold); }
+ 
+.hamburger {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+  background: none; border: none; padding: 4px;
+}
+.hamburger span {
+  display: block; width: 26px; height: 2px;
+  background: var(--gold); border-radius: 1px;
+  transition: all 0.3s ease;
+}
+#navbar:not(.scrolled) .hamburger span { background: white; }
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+ 
+.mobile-menu {
+  display: none; position: fixed; inset: 0; top: 72px;
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: blur(20px);
+  z-index: 999; padding: 32px 24px;
+  flex-direction: column; gap: 0;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem; letter-spacing: 0.1em;
+  color: var(--text); text-decoration: none;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  text-align: center;
+  transition: color 0.3s;
+}
+.mobile-menu a:hover { color: var(--gold); }
+ 
+/* ========== HERO ========== */
+#hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, #0D0500 0%, #1A0A00 40%, #2C1200 70%, #3D1C02 100%);
+}
+.hero-mandala {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.mandala-ring {
+  position: absolute; border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.15);
+}
+.mandala-ring:nth-child(1) { width: 200px; height: 200px; animation: rotateSlow 20s linear infinite; }
+.mandala-ring:nth-child(2) { width: 350px; height: 350px; border-color: rgba(201,168,76,0.1); animation: rotateSlow 35s linear infinite reverse; }
+.mandala-ring:nth-child(3) { width: 520px; height: 520px; border-color: rgba(255,107,0,0.08); animation: rotateSlow 50s linear infinite; }
+.mandala-ring:nth-child(4) { width: 700px; height: 700px; border-color: rgba(201,168,76,0.06); animation: rotateSlow 70s linear infinite reverse; }
+.mandala-ring:nth-child(5) { width: 900px; height: 900px; border-color: rgba(201,168,76,0.04); animation: rotateSlow 90s linear infinite; }
+@keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+ 
+.hero-glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201,168,76,0.12) 0%, transparent 70%);
+}
+ 
+.hero-content {
+  position: relative; z-index: 2; text-align: center;
+  padding: clamp(80px, 12vw, 120px) clamp(16px, 5vw, 48px) 80px;
+  max-width: 960px; margin: 0 auto;
+}
+.hero-tag {
+  display: inline-block;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
+  color: var(--gold-light);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease 0.3s both;
+}
+.hero-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 7vw, 6rem);
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 12px;
+  animation: fadeInUp 1s ease 0.5s both;
+}
+.hero-title span { color: var(--gold); }
+.hero-subtitle-hindi {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+  color: rgba(201,168,76,0.85);
+  margin-bottom: 16px;
+  animation: fadeInUp 1s ease 0.65s both;
+}
+.hero-tagline {
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+  color: rgba(255,255,255,0.65);
+  font-style: italic;
+  margin-bottom: 48px;
+  animation: fadeInUp 1s ease 0.75s both;
+  font-weight: 300;
+}
+.hero-btns {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  animation: fadeInUp 1s ease 0.9s both;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 36px;
+  background: linear-gradient(135deg, var(--gold), var(--saffron));
+  color: white; font-family: 'Cinzel', serif;
+  font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
+  text-decoration: none; border-radius: 2px;
+  transition: all 0.3s; box-shadow: 0 6px 30px rgba(201,168,76,0.4);
+  border: none; cursor: pointer;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(201,168,76,0.6); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 34px;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  color: white; font-family: 'Cinzel', serif;
+  font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
+  text-decoration: none; border-radius: 2px;
+  transition: all 0.3s; background: transparent; cursor: pointer;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.08); }
+ 
+.hero-scroll {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  z-index: 2; animation: bounce 2s ease infinite;
+  cursor: pointer;
+}
+.hero-scroll span {
+  display: block; width: 24px; height: 40px;
+  border: 1.5px solid rgba(201,168,76,0.5);
+  border-radius: 12px; position: relative; margin: 0 auto;
+}
+.hero-scroll span::before {
+  content: '';
+  position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+  width: 3px; height: 8px;
+  background: var(--gold); border-radius: 2px;
+  animation: scrollDot 1.5s ease infinite;
+}
+@keyframes scrollDot { 0% { top: 6px; opacity: 1; } 100% { top: 22px; opacity: 0; } }
+@keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+ 
+.hero-stats {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to right, rgba(13,5,0,0.9), rgba(201,168,76,0.15), rgba(13,5,0,0.9));
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(201,168,76,0.2);
+  padding: 20px clamp(16px, 5vw, 80px);
+  display: flex; justify-content: center; gap: clamp(32px, 8vw, 80px); flex-wrap: wrap;
+  z-index: 2;
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+  color: var(--gold); display: block;
+}
+.stat-label {
+  font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  font-family: 'Cinzel', serif;
+}
+ 
+/* ========== SECTIONS COMMON ========== */
+.section { padding: clamp(60px, 10vw, 100px) clamp(16px, 5vw, 80px); }
+.section-inner { max-width: 1280px; margin: 0 auto; }
+.section-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--saffron); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before, .section-tag::after {
+  content: ''; flex: 1; max-width: 40px;
+  height: 1px; background: var(--saffron); opacity: 0.5;
+}
+.section-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  color: var(--text); line-height: 1.15;
+  margin-bottom: 16px;
+}
+.section-title span { color: var(--gold); }
+.section-subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: var(--muted); max-width: 600px;
+  line-height: 1.8; font-weight: 300;
+}
+.gold-divider {
+  width: 60px; height: 2px;
+  background: linear-gradient(to right, var(--gold), var(--saffron));
+  margin: 24px 0; border-radius: 1px;
+}
+.gold-divider.center { margin: 24px auto; }
+ 
+/* Reveal animation */
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left {
+  opacity: 0; transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right {
+  opacity: 0; transform: translateX(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+ 
+/* ========== ABOUT ========== */
+#about { background: var(--cream); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 6vw, 80px); align-items: center;
+}
+@media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+.about-img-wrap {
+  position: relative;
+}
+.about-img-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* THIS ensures image stays inside frame */
+  border-radius: 12px; /* optional for smooth edges */
+}
+
+.about-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* THIS makes it fully cover */
+  object-position: center; /* keeps subject centered */
+  display: block;
+}
+
+.about-img-frame::before {
+  content: '';
+  position: absolute; inset: 8px;
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 2px; z-index: 1;
+}
+.about-img-placeholder {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 8rem; color: rgba(201,168,76,0.3);
+  z-index: 0;
+}
+.about-corner {
+  position: absolute; width: 28px; height: 28px;
+  border-color: var(--gold);
+}
+.about-corner.tl { top: -2px; left: -2px; border-top: 3px solid; border-left: 3px solid; }
+.about-corner.tr { top: -2px; right: -2px; border-top: 3px solid; border-right: 3px solid; }
+.about-corner.bl { bottom: -2px; left: -2px; border-bottom: 3px solid; border-left: 3px solid; }
+.about-corner.br { bottom: -2px; right: -2px; border-bottom: 3px solid; border-right: 3px solid; }
+.about-badge {
+  position: absolute; bottom: -20px; right: -20px;
+  width: 100px; height: 100px;
+  background: linear-gradient(135deg, var(--gold), var(--saffron));
+  border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  box-shadow: 0 8px 30px rgba(201,168,76,0.5);
+  z-index: 2;
+}
+.about-badge-num {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.6rem; color: white; line-height: 1;
+}
+.about-badge-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.5rem; color: rgba(255,255,255,0.9);
+  letter-spacing: 0.08em; text-transform: uppercase; text-align: center;
+}
+.about-text .hindi-quote {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  color: var(--muted); font-style: italic;
+  border-left: 3px solid var(--gold);
+  padding: 12px 20px; margin: 24px 0;
+  background: rgba(201,168,76,0.05);
+  border-radius: 0 4px 4px 0;
+  line-height: 1.8;
+}
+.about-features {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px;
+}
+.about-feature {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.9rem; color: var(--text);
+}
+.about-feature i { color: var(--gold); font-size: 1rem; }
+ 
+/* ========== SERVICES ========== */
+#services { background: white; }
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-top: 48px;
+}
+@media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .services-grid { grid-template-columns: 1fr; } }
+.service-card {
+  padding: 36px 28px; border-radius: 6px;
+  background: var(--cream);
+  border: 1px solid rgba(201,168,76,0.15);
+  transition: all 0.4s ease; position: relative; overflow: hidden;
+  cursor: default;
+}
+.service-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, var(--gold), var(--saffron));
+  transform: scaleX(0); transition: transform 0.4s ease;
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(201,168,76,0.15); }
+.service-card:hover::before { transform: scaleX(1); }
+.service-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(255,107,0,0.1));
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px; font-size: 1.6rem;
+  transition: all 0.4s;
+}
+.service-card:hover .service-icon {
+  background: linear-gradient(135deg, var(--gold), var(--saffron));
+  transform: scale(1.1);
+}
+.service-card:hover .service-icon i { color: white; }
+.service-icon i { color: var(--gold); }
+.service-card h3 {
+  font-family: 'Cinzel', serif; font-size: 1.1rem;
+  color: var(--text); margin-bottom: 12px; font-weight: 600;
+}
+.service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.8; }
+ 
+/* ========== VIDEOS ========== */
+#videos { background: #fefaf4; }
+.videos-tabs {
+  display: flex; gap: 8px; margin-bottom: 36px; flex-wrap: wrap;
+}
+.tab-btn {
+  padding: 8px 22px;
+  border: 1.5px solid rgba(201,168,76,0.3);
+  background: transparent; color: var(--muted);
+  font-family: 'Cinzel', serif; font-size: 0.7rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  cursor: pointer; border-radius: 2px; transition: all 0.3s;
+}
+.tab-btn.active, .tab-btn:hover {
+  background: var(--gold); color: white; border-color: var(--gold);
+}
+.videos-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 1024px) { .videos-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .videos-grid { grid-template-columns: 1fr; } }
+.video-card {
+  border-radius: 6px; overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.15);
+  transition: all 0.4s; background: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.video-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(201,168,76,0.2); }
+.video-embed {
+  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+}
+.video-embed iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  border: none;
+}
+.video-info { padding: 16px 18px; }
+.video-info h4 {
+  font-family: 'Cinzel', serif; font-size: 0.85rem;
+  color: var(--text); margin-bottom: 6px;
+  line-height: 1.4;
+}
+.video-info p { font-size: 0.8rem; color: var(--muted); }
+.video-tag {
+  display: inline-block; padding: 3px 10px;
+  background: rgba(201,168,76,0.1); color: var(--gold-dark);
+  font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  font-family: 'Cinzel', serif; border-radius: 2px; margin-bottom: 8px;
+}
+ 
+/* ========== LIVE STREAM ========== */
+#live { background: linear-gradient(135deg, #0D0500, #1A0A00); padding: clamp(60px, 10vw, 100px) clamp(16px, 5vw, 80px); }
+.live-header { text-align: center; margin-bottom: 40px; }
+.live-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 18px;
+  background: rgba(255, 50, 50, 0.15);
+  border: 1px solid rgba(255, 80, 80, 0.3);
+  border-radius: 100px; margin-bottom: 20px;
+}
+.live-dot {
+  width: 8px; height: 8px; background: #FF3333;
+  border-radius: 50%; animation: liveBlink 1s ease infinite;
+}
+@keyframes liveBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.live-badge-text {
+  font-family: 'Cinzel', serif; font-size: 0.7rem;
+  letter-spacing: 0.2em; color: #FF6666; text-transform: uppercase;
+}
+.live-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.6rem, 4vw, 2.8rem); color: white; margin-bottom: 12px;
+}
+.live-subtitle { color: rgba(255,255,255,0.5); font-size: 0.95rem; }
+.live-embed-wrap {
+  max-width: 900px; margin: 0 auto;
+  border: 2px solid rgba(201,168,76,0.3);
+  border-radius: 8px; overflow: hidden;
+  box-shadow: 0 0 60px rgba(201,168,76,0.15);
+}
+.live-embed-container {
+  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+}
+.live-embed-container iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
+}
+ 
+/* ========== GALLERY / MEMORIES ========== */
+#gallery { background: var(--cream); }
+.gallery-mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 12px; margin-top: 40px;
+}
+@media (max-width: 768px) { .gallery-mosaic { grid-template-columns: repeat(2, 1fr); } }
+.gallery-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* makes all boxes equal (square) */
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+/* Image fills FULL frame */
+.gallery-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* KEY: fills entire frame */
+}
+
+/* Text overlay */
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 12px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+/* Hover zoom */
+.gallery-item:hover img {
+  transform: scale(1.08);
+  transition: 0.4s ease;
+}
+.gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; min-height: 300px; }
+.gallery-item:hover { transform: scale(1.02); z-index: 1; }
+.gallery-item-inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 8px;
+  background: rgba(0,0,0,0.4);
+}
+.gallery-item i { font-size: clamp(1.5rem, 4vw, 2.5rem); color: rgba(201,168,76,0.6); }
+.gallery-item span {
+  font-family: 'Cinzel', serif; font-size: 0.7rem;
+  letter-spacing: 0.15em; color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+}
+.gallery-item:hover .gallery-item-inner { background: rgba(201,168,76,0.2); }
+ 
+/* ========== TESTIMONIALS ========== */
+#reviews { background: white; }
+.reviews-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
+.star-rating { display: flex; gap: 4px; }
+.star-rating i { color: var(--gold); font-size: 1rem; }
+.star-rating i.empty { color: #E0D0B0; }
+.reviews-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-bottom: 40px;
+}
+@media (max-width: 1024px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .reviews-grid { grid-template-columns: 1fr; } }
+.review-card {
+  padding: 28px; border-radius: 6px;
+  background: var(--cream); border: 1px solid rgba(201,168,76,0.15);
+  position: relative;
+}
+.review-card::before {
+  content: '\201C';
+  position: absolute; top: 16px; right: 20px;
+  font-family: Georgia, serif; font-size: 5rem;
+  color: rgba(201,168,76,0.12); line-height: 1;
+}
+.review-stars { display: flex; gap: 3px; margin-bottom: 12px; }
+.review-stars i { color: var(--gold); font-size: 0.85rem; }
+.review-text { font-size: 0.95rem; line-height: 1.8; color: var(--text); margin-bottom: 16px; }
+.review-author { display: flex; align-items: center; gap: 12px; }
+.review-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--saffron));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cinzel', serif; font-size: 1rem;
+  color: white; font-weight: 700;
+  flex-shrink: 0;
+}
+.review-name { font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 600; color: var(--text); }
+.review-location { font-size: 0.75rem; color: var(--muted); }
+.review-date { font-size: 0.7rem; color: var(--muted); margin-left: auto; }
+ 
+/* Add Review Form */
+.add-review-section {
+  background: var(--cream); border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 8px; padding: 36px; margin-top: 8px;
+}
+.add-review-section h3 {
+  font-family: 'Cinzel', serif; font-size: 1.2rem;
+  color: var(--text); margin-bottom: 24px; font-weight: 600;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+@media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.form-group label {
+  font-family: 'Cinzel', serif; font-size: 0.7rem;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+}
+.form-group input, .form-group textarea, .form-group select {
+  padding: 12px 16px; border: 1.5px solid rgba(201,168,76,0.25);
+  border-radius: 4px; background: white;
+  font-family: 'Crimson Pro', serif; font-size: 1rem; color: var(--text);
+  transition: border-color 0.3s; outline: none;
+  width: 100%;
+}
+.form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
+.form-group textarea { resize: vertical; min-height: 100px; }
+.star-select { display: flex; gap: 6px; margin-bottom: 16px; }
+.star-select i {
+  font-size: 1.5rem; cursor: pointer; color: #E0D0B0;
+  transition: color 0.2s; user-select: none;
+}
+.star-select i.active, .star-select i:hover { color: var(--gold); }
+ 
+/* ========== PRICING ========== */
+#pricing { background: linear-gradient(160deg, #0D0500 0%, #1A0A00 50%, #2C1200 100%); padding: clamp(60px, 10vw, 100px) clamp(16px, 5vw, 80px); }
+#pricing .section-title { color: white; }
+#pricing .section-subtitle { color: rgba(255,255,255,0.5); }
+#pricing .section-tag { color: var(--gold-light); }
+#pricing .section-tag::before, #pricing .section-tag::after { background: var(--gold-light); }
+.pricing-note {
+  font-size: 0.9rem; color: rgba(255,255,255,0.5);
+  font-style: italic; margin-top: 12px;
+}
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-top: 48px;
+}
+@media (max-width: 1024px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .pricing-grid { grid-template-columns: 1fr; } }
+.pricing-card {
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 8px; padding: 36px 28px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(8px);
+  transition: all 0.4s; position: relative; overflow: hidden;
+}
+.pricing-card.featured {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.06);
+  transform: scale(1.03);
+}
+.pricing-card:hover { transform: translateY(-6px) scale(1.01); border-color: var(--gold); }
+.pricing-card.featured:hover { transform: translateY(-6px) scale(1.04); }
+.pricing-badge {
+  position: absolute; top: 16px; right: 16px;
+  background: linear-gradient(135deg, var(--gold), var(--saffron));
+  color: white; font-family: 'Cinzel', serif;
+  font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 100px;
+}
+.pricing-icon {
+  font-size: 2rem; margin-bottom: 16px;
+}
+.pricing-name {
+  font-family: 'Cinzel', serif; font-size: 1.1rem;
+  color: white; margin-bottom: 8px; font-weight: 600;
+}
+.pricing-desc { font-size: 0.85rem; color: rgba(255,255,255,0.45); margin-bottom: 24px; line-height: 1.6; }
+.pricing-features { list-style: none; margin-bottom: 32px; }
+.pricing-features li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.9rem; color: rgba(255,255,255,0.7);
+  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.pricing-features li i { color: var(--gold); font-size: 0.8rem; flex-shrink: 0; }
+.pricing-cta {
+  display: block; width: 100%; padding: 14px;
+  text-align: center;
+  border: 1.5px solid var(--gold);
+  color: var(--gold); font-family: 'Cinzel', serif;
+  font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+  text-decoration: none; border-radius: 4px;
+  transition: all 0.3s;
+}
+.pricing-cta:hover, .pricing-card.featured .pricing-cta {
+  background: linear-gradient(135deg, var(--gold), var(--saffron));
+  color: white; border-color: transparent;
+}
+.pricing-cta:hover { transform: none; }
+ 
+/* ========== CONTACT ========== */
+#contact { background: var(--cream); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(32px, 6vw, 80px);
+  align-items: start;
+}
+@media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-info-cards { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+.contact-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 20px; background: white;
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 6px; text-decoration: none;
+  transition: all 0.3s;
+}
+.contact-card:hover { border-color: var(--gold); transform: translateX(4px); }
+.contact-card-icon {
+  width: 48px; height: 48px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; flex-shrink: 0;
+}
+.contact-card-icon.whatsapp { background: rgba(37,211,102,0.12); color: #25D366; }
+.contact-card-icon.call { background: rgba(201,168,76,0.12); color: var(--gold); }
+.contact-card-icon.email { background: rgba(255,107,0,0.1); color: var(--saffron); }
+.contact-card-icon.location { background: rgba(201,168,76,0.1); color: var(--gold-dark); }
+.contact-card-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.contact-card-value { font-size: 1rem; color: var(--text); font-weight: 500; }
+.contact-form { background: white; border-radius: 8px; padding: 40px; border: 1px solid rgba(201,168,76,0.15); }
+.contact-form h3 { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--text); margin-bottom: 24px; font-weight: 600; }
+.submit-btn {
+  width: 100%; padding: 15px; text-align: center;
+  background: linear-gradient(135deg, var(--gold), var(--saffron));
+  color: white; font-family: 'Cinzel', serif;
+  font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
+  border: none; border-radius: 4px; cursor: pointer;
+  transition: all 0.3s; box-shadow: 0 6px 25px rgba(201,168,76,0.35);
+}
+.submit-btn:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 10px 35px rgba(201,168,76,0.45); }
+ 
+/* ========== SOCIAL / CHANNELS ========== */
+#social { background: white; padding: clamp(60px, 8vw, 80px) clamp(16px, 5vw, 80px); }
+.social-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 16px; margin-top: 40px;
+}
+@media (max-width: 1024px) { .social-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .social-grid { grid-template-columns: repeat(2, 1fr); } }
+.social-card {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 12px; padding: 28px 16px; border-radius: 8px;
+  text-decoration: none; transition: all 0.4s;
+  border: 1px solid transparent;
+}
+.social-card:hover { transform: translateY(-8px); }
+.social-card.youtube { background: rgba(255,0,0,0.05); border-color: rgba(255,0,0,0.1); }
+.social-card.youtube:hover { background: rgba(255,0,0,0.08); border-color: rgba(255,0,0,0.2); }
+.social-card.facebook { background: rgba(24,119,242,0.05); border-color: rgba(24,119,242,0.1); }
+.social-card.facebook:hover { background: rgba(24,119,242,0.08); border-color: rgba(24,119,242,0.2); }
+.social-card.instagram { background: rgba(225,48,108,0.05); border-color: rgba(225,48,108,0.1); }
+.social-card.instagram:hover { background: rgba(225,48,108,0.08); border-color: rgba(225,48,108,0.2); }
+.social-card.whatsapp-s { background: rgba(37,211,102,0.05); border-color: rgba(37,211,102,0.1); }
+.social-card.whatsapp-s:hover { background: rgba(37,211,102,0.08); border-color: rgba(37,211,102,0.2); }
+.social-card.twitter { background: rgba(29,161,242,0.05); border-color: rgba(29,161,242,0.1); }
+.social-card.twitter:hover { background: rgba(29,161,242,0.08); border-color: rgba(29,161,242,0.2); }
+.social-icon {
+  width: 60px; height: 60px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; transition: all 0.3s;
+}
+.social-card.youtube .social-icon { background: rgba(255,0,0,0.1); color: #FF0000; }
+.social-card.facebook .social-icon { background: rgba(24,119,242,0.1); color: #1877F2; }
+.social-card.instagram .social-icon { background: rgba(225,48,108,0.1); color: #E1306C; }
+.social-card.whatsapp-s .social-icon { background: rgba(37,211,102,0.1); color: #25D366; }
+.social-card.twitter .social-icon { background: rgba(29,161,242,0.1); color: #1DA1F2; }
+.social-card-name { font-family: 'Cinzel', serif; font-size: 0.8rem; color: var(--text); font-weight: 600; }
+.social-card-handle { font-size: 0.75rem; color: var(--muted); }
+.social-card:hover .social-icon { transform: scale(1.15); }
+ 
+/* ========== FLOATING WHATSAPP ========== */
+.whatsapp-float {
+  position: fixed; bottom: 28px; right: 28px;
+  z-index: 500;
+}
+.whatsapp-float a {
+  display: flex; align-items: center; justify-content: center;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 6px 30px rgba(37,211,102,0.5);
+  color: white; font-size: 1.8rem;
+  text-decoration: none; transition: all 0.3s;
+  animation: waPulse 2s ease infinite;
+}
+.whatsapp-float a:hover { transform: scale(1.1); animation: none; }
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 6px 30px rgba(37,211,102,0.5); }
+  50% { box-shadow: 0 6px 50px rgba(37,211,102,0.8), 0 0 0 12px rgba(37,211,102,0.1); }
+}
+ 
+/* ========== CALL BUTTON ========== */
+.call-float {
+  position: fixed; bottom: 100px; right: 28px; z-index: 500;
+}
+.call-float a {
+  display: flex; align-items: center; justify-content: center;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--saffron));
+  box-shadow: 0 6px 25px rgba(201,168,76,0.5);
+  color: white; font-size: 1.3rem;
+  text-decoration: none; transition: all 0.3s;
+}
+.call-float a:hover { transform: scale(1.1); }
+ 
+/* ========== FOOTER ========== */
+footer {
+  background: #060200;
+  padding: clamp(48px, 8vw, 80px) clamp(16px, 5vw, 80px) 0;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: clamp(24px, 5vw, 60px); max-width: 1280px; margin: 0 auto;
+  padding-bottom: clamp(40px, 6vw, 64px);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+@media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-brand { }
+.footer-logo {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.4rem; color: var(--gold);
+  margin-bottom: 16px; display: block;
+}
+.footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.8; max-width: 280px; }
+.footer-socials { display: flex; gap: 12px; margin-top: 20px; }
+.footer-social-link {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.25);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(201,168,76,0.6); font-size: 0.9rem;
+  text-decoration: none; transition: all 0.3s;
+}
+.footer-social-link:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.08); }
+.footer-heading {
+  font-family: 'Cinzel', serif; font-size: 0.75rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(201,168,76,0.7); margin-bottom: 20px;
+  padding-bottom: 10px; border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a {
+  text-decoration: none; font-size: 0.85rem;
+  color: rgba(255,255,255,0.4); transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 0; flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+.footer-bottom span { color: var(--gold); }
+ 
+/* ========== MARQUEE ========== */
+.marquee-section {
+  background: linear-gradient(to right, var(--gold-dark), var(--saffron), var(--gold-dark));
+  padding: 14px 0; overflow: hidden;
+}
+.marquee-track {
+  display: flex; gap: 0;
+  animation: marquee 20s linear infinite;
+  white-space: nowrap;
+}
+.marquee-item {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 0 24px;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 0.85rem; color: white; opacity: 0.9;
+  flex-shrink: 0;
+}
+.marquee-item i { color: rgba(255,255,255,0.7); font-size: 0.7rem; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+ 
+/* ========== COUNTER SECTION ========== */
+#numbers {
+  background: linear-gradient(135deg, #fff9f0 0%, #fff4e0 100%);
+  padding: clamp(48px, 8vw, 80px) clamp(16px, 5vw, 80px);
+  border-top: 1px solid rgba(201,168,76,0.1);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+.numbers-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 24px; max-width: 1280px; margin: 0 auto;
+  text-align: center;
+}
+@media (max-width: 768px) { .numbers-grid { grid-template-columns: repeat(2, 1fr); } }
+.number-item { padding: 24px; }
+.number-icon { font-size: 2rem; color: var(--gold); margin-bottom: 12px; }
+.number-val {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem); color: var(--text); line-height: 1;
+  margin-bottom: 8px;
+}
+.number-val span { color: var(--gold); }
+.number-label { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+ 
+/* ========== TOAST ========== */
+.toast {
+  position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(100px);
+  background: linear-gradient(135deg, var(--gold), var(--saffron));
+  color: white; padding: 14px 28px; border-radius: 4px;
+  font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.1em;
+  z-index: 9000; transition: transform 0.4s ease;
+  box-shadow: 0 8px 30px rgba(201,168,76,0.5);
+  white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+ 
+@media (max-width: 768px) {
+  .nav-links, .nav-book-btn { display: none; }
+  .hamburger { display: flex; }
+}
+</style>
+</head>
+<body>
+ 
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-om">ॐ</div>
+  <div class="loader-text">Dhruv Ladla Ji &nbsp;·&nbsp; Vrindavan</div>
+  <div class="loader-bar"><div class="loader-progress"></div></div>
+</div>
+ 
+<!-- FLOATING PETALS -->
+<div class="petals-container" id="petals"></div>
+ 
+<!-- TOAST -->
+<div class="toast" id="toast">🙏 Message sent successfully!</div>
+ 
+<!-- FLOATING WHATSAPP -->
+<div class="whatsapp-float">
+  <a href="https://wa.me/917248252881" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+<!-- FLOATING CALL -->
+<div class="call-float">
+  <a href="tel:+917248252881" title="Call Now">
+    <i class="fas fa-phone"></i>
+  </a>
+</div>
+ 
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-icon">ध्</div>
+      <div>
+        <div class="nav-logo-text">Dhruv Ladla Ji</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/917248252881?text=Namaste%20Dhruv%20Ladla%20Ji!%20I%20would%20like%20to%20book%20you%20for%20a%20Bhajan%20Sandhya." class="nav-book-btn" target="_blank">Book Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+ 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#videos" onclick="closeMobile()">Videos</a>
+  <a href="#live" onclick="closeMobile()">Live Stream</a>
+  <a href="#reviews" onclick="closeMobile()">Reviews</a>
+  <a href="#pricing" onclick="closeMobile()">Pricing</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="https://wa.me/917248252881" target="_blank" style="color:#25D366;font-weight:600;">💬 WhatsApp</a>
+  <a href="tel:+917248252881" style="color:var(--gold);font-weight:600;">📞 Call Now</a>
+</div>
+ 
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-mandala">
+    <div class="mandala-ring"></div>
+    <div class="mandala-ring"></div>
+    <div class="mandala-ring"></div>
+    <div class="mandala-ring"></div>
+    <div class="mandala-ring"></div>
+  </div>
+  <div class="hero-glow"></div>
+ 
+  <div class="hero-content">
+    <div class="hero-tag">🙏 &nbsp; श्री वृन्दावन धाम &nbsp; 🙏</div>
+    <h1 class="hero-title">Dhruv <span>Ladla</span> Ji</h1>
+    <div class="hero-subtitle-hindi">भजन गायक · भजन संध्या · वृन्दावन</div>
+    <p class="hero-tagline">"Where every note is a prayer, every melody a path to the divine..."</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/917248252881?text=Namaste%20Dhruv%20Ladla%20Ji!%20I%20would%20like%20to%20book%20you%20for%20a%20Bhajan%20Sandhya." class="btn-primary" target="_blank">
+        <i class="fab fa-whatsapp"></i> Book Bhajan Sandhya
+      </a>
+      <a href="#videos" class="btn-outline">
+        <i class="fab fa-youtube"></i> Watch Bhajans
+      </a>
+    </div>
+  </div>
+ 
+  <div class="hero-stats">
+    <div class="stat-item reveal">
+      <span class="stat-num" data-target="15">0</span>
+      <span class="stat-label">Years of Bhakti</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num" data-target="1000">0</span>
+      <span class="stat-label">Programs Performed</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num" data-target="50">0</span>
+      <span class="stat-label">Cities Covered</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num" data-target="500000">0</span>
+      <span class="stat-label">Hearts Touched</span>
+    </div>
+  </div>
+ 
+  <div class="hero-scroll" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+    <span></span>
+  </div>
+</section>
+ 
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item"><i class="fas fa-om"></i> राधे राधे</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Bhajan Sandhya</span>
+    <span class="marquee-item"><i class="fas fa-om"></i> जय श्री कृष्ण</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Vrindavan Bhajans</span>
+    <span class="marquee-item"><i class="fas fa-om"></i> हरे कृष्ण हरे राम</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Divine Kirtan</span>
+    <span class="marquee-item"><i class="fas fa-om"></i> Dhruv Ladla Ji</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Spiritual Programs</span>
+    <span class="marquee-item"><i class="fas fa-om"></i> राधे राधे</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Bhajan Sandhya</span>
+    <span class="marquee-item"><i class="fas fa-om"></i> जय श्री कृष्ण</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Vrindavan Bhajans</span>
+    <span class="marquee-item"><i class="fas fa-om"></i> हरे कृष्ण हरे राम</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Divine Kirtan</span>
+    <span class="marquee-item"><i class="fas fa-om"></i> Dhruv Ladla Ji</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Spiritual Programs</span>
+  </div>
+</div>
+ 
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section">
+  <div class="section-inner">
+    <div class="about-grid">
+      
+      <div class="about-img-wrap reveal-left">
+        <div class="about-img-frame">
+          
+          <!-- IMAGE ADDED HERE -->
+          <img src="img2.png" alt="Dhruv Ladla Ji" class="about-img">
+
+          <div class="about-corner tl"></div>
+          <div class="about-corner tr"></div>
+          <div class="about-corner bl"></div>
+          <div class="about-corner br"></div>
+        </div>
+
+        <div class="about-badge">
+          <span class="about-badge-num">15+</span>
+          <span class="about-badge-text">Years of<br>Bhakti</span>
+        </div>
+      </div>
+
+      <div class="about-text reveal-right">
+        <div class="section-tag">About the Artist</div>
+        <h2 class="section-title">Bhajan Gayan of <span>Vrindavan</span></h2>
+        <div class="gold-divider"></div>
+
+        <p style="font-size:1.05rem;line-height:1.9;color:var(--text);margin-bottom:16px;">
+          Dhruv Ladla Ji is a revered bhajan singer rooted in the sacred soil of <strong>Shri Vrindavan Dham</strong> — the eternal land of Radha and Krishna. With a divine voice that carries the fragrance of Brij Bhoomi, he has been captivating devotees across India with his melodious <em>Bhajan Sandhyas</em> and soul-stirring kirtans.
+        </p>
+
+        <div class="hindi-quote">
+          "यह चैनल श्री वृन्दावन धाम के रसास्वादन हेतु मधुर मधुर भजनों से सज्जित है — भजन गायक श्री ध्रुव लाडला जी के भजन संध्याओं की अनुपम प्रस्तुतियों का संग्रह।"
+        </div>
+
+        <p style="font-size:0.95rem;line-height:1.9;color:var(--muted);">
+          His compositions draw from the timeless bhajan traditions of saints like <strong>Kunj Bihari Das Ji Maharaj</strong>, fusing classical ragas with the pure devotion of Vraja. Every performance becomes a <em>Bhakti Yatra</em> — a spiritual journey inward.
+        </p>
+
+        <div class="about-features">
+          <div class="about-feature"><i class="fas fa-map-marker-alt"></i> Based in Vrindavan, UP</div>
+          <div class="about-feature"><i class="fas fa-music"></i> Krishna & Radha Bhajans</div>
+          <div class="about-feature"><i class="fas fa-microphone"></i> Bhajan Sandhya Specialist</div>
+          <div class="about-feature"><i class="fas fa-om"></i> Kirtan & Sankirtan</div>
+          <div class="about-feature"><i class="fas fa-plane"></i> Pan-India Bookings</div>
+          <div class="about-feature"><i class="fab fa-youtube"></i> YouTube Content Creator</div>
+        </div>
+
+        <div style="margin-top:28px;">
+          <a href="#contact" class="btn-primary">Get in Touch</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+ 
+<!-- ===== NUMBERS ===== -->
+<section id="numbers">
+  <div class="numbers-grid">
+    <div class="number-item reveal">
+      <div class="number-icon">🎤</div>
+      <div class="number-val"><span class="counter" data-target="1000">0</span>+</div>
+      <div class="number-label">Live Programs</div>
+    </div>
+    <div class="number-item reveal">
+      <div class="number-icon">🌍</div>
+      <div class="number-val"><span class="counter" data-target="50">0</span>+</div>
+      <div class="number-label">Cities Performed</div>
+    </div>
+    <div class="number-item reveal">
+      <div class="number-icon">📺</div>
+      <div class="number-val"><span class="counter" data-target="100">0</span>+</div>
+      <div class="number-label">YouTube Videos</div>
+    </div>
+    <div class="number-item reveal">
+      <div class="number-icon">🙏</div>
+      <div class="number-val"><span class="counter" data-target="500000">0</span>+</div>
+      <div class="number-label">Devotees Reached</div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===== SERVICES ===== -->
+<section id="services" class="section">
+  <div class="section-inner">
+    <div class="text-center" style="text-align:center">
+      <div class="section-tag" style="justify-content:center">Our Offerings</div>
+      <h2 class="section-title">Bhakti <span>Programs</span> & Services</h2>
+      <div class="gold-divider center"></div>
+      <p class="section-subtitle" style="margin:0 auto;">From intimate family prayers to grand temple festivals — we bring divine melodies to every sacred occasion.</p>
+    </div>
+    <div class="services-grid" style="margin-top:48px">
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-om"></i></div>
+        <h3>Bhajan Sandhya</h3>
+        <p>A dedicated evening of devotional singing — immerse in the bliss of Radha-Krishna bhajans, specially curated for all spiritual gatherings, satsangs, and temple events.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-drum"></i></div>
+        <h3>Kirtan & Sankirtan</h3>
+        <p>High-energy group kirtan sessions featuring traditional mridanga, harmonium, and cymbals. Perfect for Janmashtami, Ram Navami, Holi, and other religious festivals.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-home"></i></div>
+        <h3>Griha Pravesh Bhajan</h3>
+        <p>Bless your new home with sacred bhajans and Vedic hymns. A divine musical welcome that fills your abode with positive energy and divine blessings.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-mosque"></i></div>
+        <h3>Temple Programs</h3>
+        <p>Official Bhajan Sandhyas at temples across India. Dhruv Ladla Ji has performed at major temples in Vrindavan, Mathura, Haridwar, and beyond.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-calendar-alt"></i></div>
+        <h3>Festival Celebrations</h3>
+        <p>Complete religious event management for Janmashtami, Radhashtami, Ram Navami, Holi and other sacred festivals with full band and sound arrangements.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-broadcast-tower"></i></div>
+        <h3>Online Satsang & Live</h3>
+        <p>Join the divine experience online! Live YouTube Bhajan Sandhyas bring Vrindavan to your home, wherever you are in the world. Pure bhakti at the click of a button.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===== VIDEOS ===== -->
+<section id="videos" class="section">
+  <div class="section-inner">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:32px">
+      <div>
+        <div class="section-tag">YouTube Channel</div>
+        <h2 class="section-title">Watch Divine <span>Bhajans</span></h2>
+        <div class="gold-divider"></div>
+      </div>
+      <a href="https://www.youtube.com/@dhruvladla6062" target="_blank" class="btn-primary" style="white-space:nowrap">
+        <i class="fab fa-youtube"></i> Subscribe Channel
+      </a>
+    </div>
+ 
+    <div class="videos-tabs">
+      <button class="tab-btn active" onclick="filterVideos('all', this)">All Bhajans</button>
+      <button class="tab-btn" onclick="filterVideos('krishna', this)">Krishna Bhajans</button>
+      <button class="tab-btn" onclick="filterVideos('radha', this)">Radhe Radhe</button>
+      <button class="tab-btn" onclick="filterVideos('sandhya', this)">Bhajan Sandhya</button>
+      <button class="tab-btn" onclick="filterVideos('special', this)">Festival Special</button>
+    </div>
+ 
+    <div class="videos-grid" id="videosGrid">
+ 
+      <!-- Embedded YouTube videos from @dhruvladla6062 channel -->
+      <div class="video-card reveal" data-cat="sandhya">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/LiH6gv8c5oU" title="Sriradha Naam Sankirtan" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+          <div class="video-tag">Sankirtan</div>
+          <h4>Sriradha Naam Sankirtan</h4>
+          <p>Dhruv Ladla Ji · Vrindavan Dham</p>
+        </div>
+      </div>
+ 
+      <div class="video-card reveal" data-cat="krishna">
+        <div class="video-embed">
+         <iframe width="560" height="315" src="https://www.youtube.com/embed/x6f2yDDsvGU?si=XTNFCfXfRqhq9J_f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <div class="video-tag">Krishna Bhajan</div>
+          <h4>Kunj Gali Ke Bhajan</h4>
+          <p>Dhruv Ladla Ji · Bhajan Sandhya</p>
+        </div>
+      </div>
+ 
+      <div class="video-card reveal" data-cat="radha">
+        <div class="video-embed">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/qNVdKJIDdyg?si=6JgmK0suAXV94qPu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <div class="video-tag">Holi Special</div>
+          <h4>Vrindavan Mach Rahi Dhoom</h4>
+          <p>Holi Special Bhajan · Vrindavan</p>
+        </div>
+      </div>
+ 
+      <div class="video-card reveal" data-cat="special">
+        <div class="video-embed">
+         <iframe width="560" height="315" src="https://www.youtube.com/embed/MNGBiK2HFPQ?si=I9x2_aWS1SsYfZWm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <div class="video-tag">Vrindavan Special</div>
+          <h4>Pyaro Vrindavan</h4>
+          <p>Ode to Shri Vrindavan Dham</p>
+        </div>
+      </div>
+ 
+      <div class="video-card reveal" data-cat="krishna">
+        <div class="video-embed">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/nSp4RjbBzTU?si=xPRASKq02xZEB94Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <div class="video-tag">Bhajan Mashup</div>
+          <h4>Krishna Bhajan Mashup Vol. 2</h4>
+          <p>Live at Vrindavan Chandrodaya Mandir</p>
+        </div>
+      </div>
+ 
+      <div class="video-card reveal" data-cat="sandhya">
+        <div class="video-embed">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Ira3xrGjnGg?si=CHTadzdCA7DJNRhU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <div class="video-tag">Live Kirtan</div>
+          <h4>Live Kirtan at Vrindavan</h4>
+          <p>Chandrodaya Mandir Special</p>
+        </div>
+      </div>
+    </div>
+ 
+    <div style="text-align:center;margin-top:40px">
+      <a href="https://www.youtube.com/@dhruvladla6062" target="_blank" class="btn-outline" style="color:var(--text);border-color:rgba(201,168,76,0.4)">
+        <i class="fas fa-play-circle" style="color:var(--gold)"></i> View All Videos on YouTube
+      </a>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===== LIVE STREAM ===== -->
+<section id="live">
+  <div style="max-width:1280px;margin:0 auto">
+    <div class="live-header reveal">
+      <div class="live-badge">
+        <div class="live-dot"></div>
+        <span class="live-badge-text">Live · YouTube</span>
+      </div>
+      <h2 class="live-title">Watch Live Bhajan Sandhya</h2>
+      <p class="live-subtitle">Tune in to the divine live stream directly from Vrindavan — right here on our website.</p>
+    </div>
+    <div class="live-embed-wrap reveal">
+      <div class="live-embed-container">
+        <!-- Live stream from channel -->
+        <iframe
+          src="https://www.youtube.com/embed/live_stream?channel=UCLvzBnaT5M_OvSRhHsVPwCw&autoplay=0"
+          title="Dhruv Ladla Ji Live"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <a href="https://www.youtube.com/@dhruvladla6062/live" target="_blank" class="btn-outline" style="color:rgba(255,255,255,0.7);border-color:rgba(201,168,76,0.3)">
+        <i class="fab fa-youtube" style="color:#FF0000"></i> Open in YouTube
+      </a>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===== GALLERY ===== -->
+<section id="gallery" class="section">
+  <div class="section-inner">
+    
+    <div style="text-align:center">
+      <div class="section-tag" style="justify-content:center">Memories</div>
+      <h2 class="section-title">Sacred <span>Moments</span></h2>
+      <div class="gold-divider center"></div>
+      <p class="section-subtitle" style="margin:0 auto 40px">
+        From the streets of Vrindavan to grand temple stages — a glimpse into the divine journey.
+      </p>
+    </div>
+<div class="gallery-mosaic reveal">
+
+  <div class="gallery-item">
+    <img src="img4.png" alt="Bhajan Sandhya">
+    <div class="gallery-overlay">Bhajan Sandhya</div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="img1.png" alt="Live Performance">
+    <div class="gallery-overlay">Live Performance</div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="img8.png" alt="Studio Session">
+    <div class="gallery-overlay">Studio Session</div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="img11.png" alt="Temple Program">
+    <div class="gallery-overlay">Temple Program</div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="img9.png" alt="Kirtan Program">
+    <div class="gallery-overlay">Kirtan Program</div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="img10.png" alt="Satsang">
+    <div class="gallery-overlay">Satsang</div>
+  </div>
+
+</div>
+    <p style="text-align:center;margin-top:24px;font-size:0.85rem;color:var(--muted);font-style:italic">
+      📸 Gallery images being updated — Visit our YouTube channel for latest moments.
+    </p>
+
+  </div>
+</section>
+ 
+<!-- ===== REVIEWS ===== -->
+<section id="reviews" class="section" style="background:white">
+  <div class="section-inner">
+    <div class="reviews-header">
+      <div>
+        <div class="section-tag">Devotee Voices</div>
+        <h2 class="section-title">What Devotees <span>Say</span></h2>
+        <div class="gold-divider"></div>
+      </div>
+      <div style="text-align:right">
+        <div class="star-rating">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p style="font-size:0.8rem;color:var(--muted);margin-top:4px;font-family:'Cinzel',serif">5.0 Average Rating</p>
+      </div>
+    </div>
+ 
+    <!-- Static reviews -->
+    <div class="reviews-grid" id="reviewsGrid">
+      <div class="review-card reveal">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="review-text">"Dhruv Ladla Ji's Bhajan Sandhya at our home was an experience beyond words. His voice carries the fragrance of Vrindavan itself. Every devotee was in tears of joy. Highly recommend for any satsang or puja event!"</p>
+        <div class="review-author">
+          <div class="review-avatar">R</div>
+          <div><div class="review-name">Ramesh Sharma</div><div class="review-location">Delhi, India</div></div>
+          <div class="review-date">Jan 2024</div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="review-text">"मैंने Dhruv Ladla Ji को हमारे मंदिर के वार्षिकोत्सव पर बुलाया था। उनकी भजन संध्या अद्भुत थी! हर भक्त का मन भक्ति में डूब गया। जरूर बुलाइए!"</p>
+        <div class="review-author">
+          <div class="review-avatar">P</div>
+          <div><div class="review-name">Priya Gupta</div><div class="review-location">Mathura, UP</div></div>
+          <div class="review-date">Mar 2024</div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="review-text">"A truly divine experience. Dhruv Ji's bhajans transport you to another realm. We had him perform at our Janmashtami celebration and the crowd was absolutely mesmerized for 3 hours straight. Will invite again!"</p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div><div class="review-name">Anita Verma</div><div class="review-location">Agra, UP</div></div>
+          <div class="review-date">Aug 2023</div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Dynamic user reviews will appear here -->
+    <div id="userReviewsGrid" class="reviews-grid" style="margin-top:0"></div>
+ 
+    <!-- Add Review Form -->
+    <div class="add-review-section reveal">
+      <h3>🙏 Share Your Experience</h3>
+      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:24px;">Your review will be saved and visible to all visitors. Help fellow devotees discover divine bhakti!</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" id="reviewName" placeholder="e.g. Ramesh Kumar">
+        </div>
+        <div class="form-group">
+          <label>City / Location</label>
+          <input type="text" id="reviewLocation" placeholder="e.g. Delhi, India">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Rating *</label>
+        <div class="star-select" id="starSelect">
+          <i class="fas fa-star" data-val="1"></i>
+          <i class="fas fa-star" data-val="2"></i>
+          <i class="fas fa-star" data-val="3"></i>
+          <i class="fas fa-star" data-val="4"></i>
+          <i class="fas fa-star" data-val="5"></i>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Your Review *</label>
+        <textarea id="reviewText" rows="4" placeholder="Share your experience with Dhruv Ladla Ji's bhajan program..."></textarea>
+      </div>
+      <button class="btn-primary" onclick="submitReview()" style="border:none;cursor:pointer">
+        <i class="fas fa-paper-plane"></i> Submit Review
+      </button>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===== PRICING ===== -->
+<section id="pricing">
+  <div class="section-inner" style="max-width:1280px;margin:0 auto">
+    <div style="text-align:center">
+      <div class="section-tag" style="justify-content:center">Packages</div>
+      <h2 class="section-title">Bhajan <span>Packages</span> & Pricing</h2>
+      <div class="gold-divider center"></div>
+      <p class="section-subtitle" style="margin:0 auto;color:rgba(255,255,255,0.5)">Every program is a unique blessing. Contact us via WhatsApp for exact pricing tailored to your event and location.</p>
+      <p class="pricing-note">* Prices vary based on location, duration, and team size. WhatsApp for custom quotes.</p>
+    </div>
+ 
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-icon">🙏</div>
+        <div class="pricing-name">Ghar Puja Bhajan</div>
+        <div class="pricing-desc">Perfect for home ceremonies, griha pravesh, and small family satsangs</div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Duration: 1.5 – 2 hrs</li>
+          <li><i class="fas fa-check"></i> Solo or Duo performance</li>
+          <li><i class="fas fa-check"></i> Harmonium + Tabla</li>
+          <li><i class="fas fa-check"></i> 15-20 Bhajans</li>
+          <li><i class="fas fa-check"></i> Griha Pravesh Special Set</li>
+          <li><i class="fas fa-check"></i> Basic Sound System</li>
+        </ul>
+        <a href="https://wa.me/917248252881?text=Namaste!%20I%20am%20interested%20in%20the%20Ghar%20Puja%20Bhajan%20Package.%20Please%20share%20pricing%20and%20availability." class="pricing-cta" target="_blank">
+          <i class="fab fa-whatsapp"></i> Get Pricing on WhatsApp
+        </a>
+      </div>
+ 
+      <div class="pricing-card featured reveal">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-icon">🎤</div>
+        <div class="pricing-name">Bhajan Sandhya Full</div>
+        <div class="pricing-desc">The complete devotional evening experience — ideal for temples, colonies, and large gatherings</div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Duration: 3 – 4 hrs</li>
+          <li><i class="fas fa-check"></i> Full Band (5-7 artists)</li>
+          <li><i class="fas fa-check"></i> Professional Sound System</li>
+          <li><i class="fas fa-check"></i> 40-50 Bhajans & Kirtans</li>
+          <li><i class="fas fa-check"></i> Stage Decoration Available</li>
+          <li><i class="fas fa-check"></i> Festival-specific setlist</li>
+          <li><i class="fas fa-check"></i> Pan-India Travel</li>
+        </ul>
+        <a href="https://wa.me/917248252881?text=Namaste!%20I%20am%20interested%20in%20the%20Full%20Bhajan%20Sandhya%20Package.%20Please%20share%20details%20and%20pricing." class="pricing-cta" target="_blank">
+          <i class="fab fa-whatsapp"></i> Get Pricing on WhatsApp
+        </a>
+      </div>
+ 
+      <div class="pricing-card reveal">
+        <div class="pricing-icon">🌟</div>
+        <div class="pricing-name">Grand Festival Program</div>
+        <div class="pricing-desc">Multi-day festival events, Maha Kirtans, and large temple celebrations</div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Multi-day Programs</li>
+          <li><i class="fas fa-check"></i> Full Band + Backup Artists</li>
+          <li><i class="fas fa-check"></i> Janmashtami / Navratri etc.</li>
+          <li><i class="fas fa-check"></i> Premium Sound & Lighting</li>
+          <li><i class="fas fa-check"></i> Live YouTube Stream</li>
+          <li><i class="fas fa-check"></i> All India & International</li>
+          <li><i class="fas fa-check"></i> Custom Event Planning</li>
+        </ul>
+        <a href="https://wa.me/917248252881?text=Namaste!%20I%20am%20interested%20in%20booking%20a%20Grand%20Festival%20Program.%20Please%20share%20details." class="pricing-cta" target="_blank">
+          <i class="fab fa-whatsapp"></i> Get Pricing on WhatsApp
+        </a>
+      </div>
+    </div>
+ 
+    <div style="text-align:center;margin-top:40px;padding:24px;border:1px solid rgba(201,168,76,0.2);border-radius:8px;background:rgba(255,255,255,0.03)">
+      <p style="color:rgba(255,255,255,0.5);font-size:0.9rem;margin-bottom:16px">For all bookings, custom requirements, and enquiries — reach out directly!</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="https://wa.me/917248252881" target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp: +91 7248252881</a>
+        <a href="tel:+917248252881" class="btn-outline" style="color:var(--gold-light);border-color:rgba(201,168,76,0.4)"><i class="fas fa-phone"></i> Call: +91 7248252881</a>
+        <a href="tel:+917248252881" class="btn-outline" style="color:var(--gold-light);border-color:rgba(201,168,76,0.4)"><i class="fas fa-phone"></i> Alt: +91 7248252881</a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="section-title">Contact & <span>Book</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-subtitle">For bookings, queries, or collaborations — reach Dhruv Ladla Ji directly.</p>
+        <div class="contact-info-cards">
+          <a href="https://wa.me/917248252881" class="contact-card" target="_blank">
+            <div class="contact-card-icon whatsapp"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <div class="contact-card-label">WhatsApp (Preferred)</div>
+              <div class="contact-card-value">+91 72482 52881</div>
+            </div>
+            <i class="fas fa-arrow-right" style="color:var(--gold);margin-left:auto"></i>
+          </a>
+          <a href="tel:+917248252881" class="contact-card">
+            <div class="contact-card-icon call"><i class="fas fa-phone"></i></div>
+            <div>
+              <div class="contact-card-label">Call Directly</div>
+              <div class="contact-card-value">+91 72482 52881</div>
+            </div>
+            <i class="fas fa-arrow-right" style="color:var(--gold);margin-left:auto"></i>
+          </a>
+          <a href="tel:+917248252881" class="contact-card">
+            <div class="contact-card-icon call"><i class="fas fa-phone"></i></div>
+            <div>
+              <div class="contact-card-label">Alternate Number</div>
+              <div class="contact-card-value">+91 7248252881</div>
+            </div>
+            <i class="fas fa-arrow-right" style="color:var(--gold);margin-left:auto"></i>
+          </a>
+          <div class="contact-card" style="cursor:default">
+            <div class="contact-card-icon location"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <div class="contact-card-label">Based In</div>
+              <div class="contact-card-value">Shri Vrindavan Dham, UP</div>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="contact-form reveal-right">
+        <h3>Send a Message</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="cName" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="cPhone" placeholder="+91 XXXXX XXXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="cEmail" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label>Event Type</label>
+          <select id="cEvent">
+            <option value="">Select event type</option>
+            <option>Bhajan Sandhya</option>
+            <option>Griha Pravesh</option>
+            <option>Temple Program</option>
+            <option>Janmashtami Celebration</option>
+            <option>Navratri Program</option>
+            <option>Ram Navami</option>
+            <option>Other Festival</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>City / Location</label>
+          <input type="text" id="cCity" placeholder="Your city and state">
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="cMessage" rows="4" placeholder="Tell us about your event, date, and any special requirements..."></textarea>
+        </div>
+        <button class="submit-btn" onclick="submitContact()">
+          <i class="fas fa-paper-plane"></i> &nbsp; Send Message via WhatsApp
+        </button>
+        <p style="font-size:0.75rem;color:var(--muted);text-align:center;margin-top:12px">Clicking will open WhatsApp with your message pre-filled</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===== SOCIAL CHANNELS ===== -->
+<section id="social">
+  <div class="section-inner">
+    <div style="text-align:center">
+      <div class="section-tag" style="justify-content:center">Stay Connected</div>
+      <h2 class="section-title">Follow on <span>Social Media</span></h2>
+      <div class="gold-divider center"></div>
+      <p class="section-subtitle" style="margin:0 auto 0">Never miss a bhajan, kirtan, or divine event — follow across all platforms!</p>
+    </div>
+    <div class="social-grid">
+      <a href="https://www.youtube.com/@dhruvladla6062" target="_blank" class="social-card youtube reveal">
+        <div class="social-icon"><i class="fab fa-youtube"></i></div>
+        <div class="social-card-name">YouTube</div>
+        <div class="social-card-handle">@dhruvladla6062</div>
+      </a>
+      <a href="https://wa.me/917248252881" target="_blank" class="social-card whatsapp-s reveal">
+        <div class="social-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="social-card-name">WhatsApp</div>
+        <div class="social-card-handle">+91 7248252881</div>
+      </a>
+      <a href="https://www.facebook.com/dhruvladlaji" target="_blank" class="social-card facebook reveal">
+        <div class="social-icon"><i class="fab fa-facebook-f"></i></div>
+        <div class="social-card-name">Facebook</div>
+        <div class="social-card-handle">Dhruv Ladla Ji</div>
+      </a>
+      <a href="https://www.instagram.com/dhruvladla?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-card instagram reveal">
+        <div class="social-icon"><i class="fab fa-instagram"></i></div>
+        <div class="social-card-name">Instagram</div>
+        <div class="social-card-handle">@dhruvladlaji</div>
+      </a>
+      <a href="https://twitter.com/dhruvladlaji" target="_blank" class="social-card twitter reveal">
+        <div class="social-icon"><i class="fab fa-x-twitter"></i></div>
+        <div class="social-card-name">X (Twitter)</div>
+        <div class="social-card-handle">@dhruvladlaji</div>
+      </a>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="footer-logo">🙏 Dhruv Ladla Ji</span>
+      <p>Bhajan singer from the sacred lands of Shri Vrindavan Dham. Spreading the fragrance of Radha-Krishna bhakti across India and beyond — one melody at a time.</p>
+      <div style="margin-top:12px;font-family:'Noto Sans Devanagari',sans-serif;font-size:0.9rem;color:rgba(201,168,76,0.6)">राधे राधे · जय श्री कृष्ण</div>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@dhruvladla6062" target="_blank" class="footer-social-link"><i class="fab fa-youtube"></i></a>
+        <a href="https://wa.me/917248252881" target="_blank" class="footer-social-link"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/dhruvladlaji" target="_blank" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/dhruvladla?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/dhruvladlaji" target="_blank" class="footer-social-link"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Dhruv Ji</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#videos">Bhajan Videos</a></li>
+        <li><a href="#live">Live Stream</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Programs</div>
+      <ul class="footer-links">
+        <li><a href="#pricing">Bhajan Sandhya</a></li>
+        <li><a href="#pricing">Kirtan & Sankirtan</a></li>
+        <li><a href="#pricing">Griha Pravesh</a></li>
+        <li><a href="#pricing">Temple Events</a></li>
+        <li><a href="#pricing">Festival Programs</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/917248252881" target="_blank">WhatsApp: +91 7248252881</a></li>
+        <li><a href="tel:+917248252881">Call: +91 7248252881</a></li>
+        <li><a href="tel:+917248252881">Alt: +91 7248252881</a></li>
+        <li><a href="https://www.youtube.com/@dhruvladla6062" target="_blank">YouTube Channel</a></li>
+        <li><a href="#contact">Send Enquiry</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom" style="max-width:1280px;margin:0 auto">
+    <p>© 2024 <span>Dhruv Ladla Ji</span>. All rights reserved. Made with 🙏 for Bhakti</p>
+    <p style="font-family:'Noto Sans Devanagari',sans-serif;color:rgba(201,168,76,0.4)">राधे राधे</p>
+  </div>
+</footer>
+ 
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// ---- LOADER ----
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hide');
+  }, 2400);
+});
+ 
+// ---- PETALS ----
+const petalSymbols = ['🌸','🌺','🌼','✿','❀','❁','🪷','🌻'];
+const petalsContainer = document.getElementById('petals');
+function createPetal() {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  p.textContent = petalSymbols[Math.floor(Math.random()*petalSymbols.length)];
+  p.style.left = Math.random()*100 + 'vw';
+  p.style.fontSize = (Math.random()*14 + 8) + 'px';
+  const dur = Math.random()*8 + 6;
+  p.style.animationDuration = dur + 's';
+  p.style.animationDelay = Math.random()*4 + 's';
+  petalsContainer.appendChild(p);
+  setTimeout(() => p.remove(), (dur+5)*1000);
+}
+setInterval(createPetal, 800);
+ 
+// ---- NAVBAR ----
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+ 
+// ---- HAMBURGER ----
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobile() {
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('open');
+}
+ 
+// ---- SCROLL REVEAL ----
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => revealObserver.observe(el));
+ 
+// ---- COUNTERS ----
+function animateCounter(el, target) {
+  let current = 0;
+  const step = Math.max(1, Math.floor(target/80));
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = current >= 1000 ? (current/1000).toFixed(current >= 100000 ? 0 : 1) + (current >= 1000 ? 'K' : '') : current;
+    if(current >= target) {
+      if(target >= 1000000) el.textContent = (target/100000).toFixed(0) + 'L';
+      else if(target >= 1000) el.textContent = (target/1000).toFixed(0) + 'K+';
+      else el.textContent = target + '+';
+      clearInterval(timer);
+    }
+  }, 20);
+}
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting && !e.target.dataset.done) {
+      e.target.dataset.done = '1';
+      animateCounter(e.target, parseInt(e.target.dataset.target));
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter, .stat-num').forEach(el => counterObserver.observe(el));
+ 
+// ---- VIDEO FILTER ----
+function filterVideos(cat, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#videosGrid .video-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+ 
+// ---- STAR SELECT ----
+let selectedRating = 5;
+const starSelectEls = document.querySelectorAll('#starSelect i');
+starSelectEls.forEach((star, i) => {
+  star.classList.add('active');
+  star.addEventListener('click', () => {
+    selectedRating = parseInt(star.dataset.val);
+    starSelectEls.forEach((s, j) => s.classList.toggle('active', j < selectedRating));
+  });
+  star.addEventListener('mouseover', () => {
+    const v = parseInt(star.dataset.val);
+    starSelectEls.forEach((s, j) => s.classList.toggle('active', j < v));
+  });
+  star.addEventListener('mouseout', () => {
+    starSelectEls.forEach((s, j) => s.classList.toggle('active', j < selectedRating));
+  });
+});
+ 
+// ---- REVIEWS (localStorage) ----
+function loadReviews() {
+  const reviews = JSON.parse(localStorage.getItem('dhruvReviews') || '[]');
+  const grid = document.getElementById('userReviewsGrid');
+  grid.innerHTML = '';
+  reviews.slice().reverse().forEach(r => {
+    grid.innerHTML += `
+      <div class="review-card">
+        <div class="review-stars">${'<i class="fas fa-star"></i>'.repeat(r.rating)}${'<i class="fas fa-star" style="color:#E0D0B0"></i>'.repeat(5-r.rating)}</div>
+        <p class="review-text">"${r.text}"</p>
+        <div class="review-author">
+          <div class="review-avatar">${r.name[0].toUpperCase()}</div>
+          <div><div class="review-name">${r.name}</div><div class="review-location">${r.location || 'India'}</div></div>
+          <div class="review-date">${r.date}</div>
+        </div>
+      </div>
+    `;
+  });
+}
+loadReviews();
+ 
+function submitReview() {
+  const name = document.getElementById('reviewName').value.trim();
+  const location = document.getElementById('reviewLocation').value.trim();
+  const text = document.getElementById('reviewText').value.trim();
+  if(!name || !text) { showToast('Please fill name and review!'); return; }
+  const reviews = JSON.parse(localStorage.getItem('dhruvReviews') || '[]');
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const d = new Date();
+  reviews.push({ name, location, text, rating: selectedRating, date: months[d.getMonth()]+' '+d.getFullYear() });
+  localStorage.setItem('dhruvReviews', JSON.stringify(reviews));
+  document.getElementById('reviewName').value = '';
+  document.getElementById('reviewLocation').value = '';
+  document.getElementById('reviewText').value = '';
+  loadReviews();
+  showToast('🙏 Review submitted! Dhanyavaad!');
+}
+ 
+// ---- CONTACT FORM ----
+function submitContact() {
+  const name = document.getElementById('cName').value.trim();
+  const phone = document.getElementById('cPhone').value.trim();
+  const email = document.getElementById('cEmail').value.trim();
+  const event = document.getElementById('cEvent').value;
+  const city = document.getElementById('cCity').value.trim();
+  const msg = document.getElementById('cMessage').value.trim();
+  if(!name || !phone) { showToast('Please fill your name and phone!'); return; }
+  const text = encodeURIComponent(
+    `🙏 Namaste Dhruv Ladla Ji!\n\n` +
+    `Name: ${name}\nPhone: ${phone}\n${email?'Email: '+email+'\n':''}` +
+    `${event?'Event Type: '+event+'\n':''}${city?'City: '+city+'\n':''}` +
+    `\n${msg || 'I would like to book you for a bhajan program. Please share availability and pricing.'}`
+  );
+  window.open(`https://wa.me/917248252881?text=${text}`, '_blank');
+  showToast('Opening WhatsApp...');
+}
+ 
+// ---- TOAST ----
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3500);
+}
+ 
+// ---- SMOOTH ACTIVE NAV ----
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if(window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.style.color = a.getAttribute('href') === '#'+current ? 'var(--gold)' : '';
+  });
+});
+</script>
+</body>
+</html>
+ 
